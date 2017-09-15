@@ -4,6 +4,7 @@ import { Meal } from './meal.model';
 @Component({
 	selector: 'my-app',
 	template: `
+		<div class="container-fluid">
 		<nav class="well">
 			<p>About</p>
 		</nav>
@@ -18,12 +19,16 @@ import { Meal } from './meal.model';
 				<div  class="well">
 					<h5>Filters</h5>
 				</div>
-				<meal-list [childMealList]="masterMealList"></meal-list>
+				<meal-list [childMealList]="masterMealList" 
+				(sendEditClick)="showDetails($event)"></meal-list>
+				<edit-meal [childSelectedMeal]="selectedMeal" 
+				(sendDoneClick)="finishedEditing()" ></edit-meal>
 			</section>
 		</main>
 		<footer class="well">
 			<p> &copy; 2017 Lisho Meal Tracker </p>
 		</footer>
+		</div>
 	`
 })
 
@@ -34,6 +39,19 @@ export class AppComponent{
 		new Meal("Pilau","Accompanied by Kachumbari",700),
 		new Meal("Pilau","Accompanied by Kachumbari",700)
 	]
-	console.log(masterMealList);
+	selectedMeal:Meal = this.masterMealList[0];
+	showDetails(clickedMeal:Meal){
+		this.selectedMeal = clickedMeal; 
+	}
+
+	finishedEditing(){
+		this.selectedMeal = null;
+	}
+
 
 }
+
+  // addTask(newTaskFromChild:Task){
+  // 	this.masterTaskList.push(newTaskFromChild);
+  // }
+  
