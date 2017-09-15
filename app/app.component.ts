@@ -16,9 +16,6 @@ import { Meal } from './meal.model';
 				<h3>Calories:</h3>
 			</section>
 			<section  class="well">
-				<div  class="well">
-					<h5>Filters</h5>
-				</div>
 				<new-meal (sendNewMeal)="addMeal($event)"></new-meal>
 				<meal-list [childMealList]="masterMealList" 
 				(sendEditClick)="showDetails($event)"></meal-list>

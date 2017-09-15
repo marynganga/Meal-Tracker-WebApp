@@ -27,7 +27,6 @@ export class EditMealComponent {
 	@Input() childSelectedMeal:Meal;
 	@Output() sendDoneClick = new EventEmitter();
 	doneIsClicked(name,description, calories){
-		if(typeof(name) === )
 		if (name === '' || description === '' || calories === ''){
 				alert('Please fill all fields.');
 				

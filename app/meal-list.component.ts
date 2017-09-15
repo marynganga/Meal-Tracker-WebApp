@@ -6,7 +6,15 @@ import { Meal } from './meal.model';
 	template: `
 		<div class="well">
 			<h3>Meals</h3>
-			<div *ngFor="let currentMeal of childMealList">
+			<div  class="well">
+				<h5>Filters</h5>
+				<select (change)="onChange($event.target.value)">
+					<option value="all" selected="selected">Show All</option>
+					<option value="under500">Under 500 Calories</option>
+					<option value="over500">Over 500 Calories</option>
+				</select>
+			</div>
+			<div *ngFor="let currentMeal of childMealList | calorieCounter:selectedCalorieOption">
 				<p>{{currentMeal.name | uppercase}}</p>
 				<p>details: {{currentMeal.description}}</p>
 				<p>calories: {{currentMeal.calories}}</p>
@@ -23,7 +31,11 @@ export class MealListComponent{
 	editIsClicked(mealToEdit:Meal){
 		this.sendEditClick.emit(mealToEdit);
 	}
-
+	public selectedCalorieOption:string = "all";
+	onChange(optionFromMenu) {
+    this.selectedCalorieOption = optionFromMenu;
+  	}
 }
+ 
 
 
