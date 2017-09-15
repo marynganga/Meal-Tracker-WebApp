@@ -11,7 +11,7 @@ import { Meal } from './meal.model';
 				<input #name id="mealName" type="text" class="form-control" required>
 			</div> 
 			<div class="form-group">
-				<label for="mealDescription" class="form-label">Description:</label>
+				<label for="mealDescription" class="form-label">Details:</label>
 				<input #description id="mealDescription" type="text"  class="form-control" >
 			</div> 
 			<div class="form-group">
@@ -25,8 +25,14 @@ import { Meal } from './meal.model';
 export class NewMealComponent{
 		@Output() sendNewMeal = new EventEmitter();
 		submitIsClicked(name:string,description:string, calories:number){
+			if (name === '' || description === '' || calories === ''){
+				alert('Please fill all fields.');
+				
+			}else{
 			var newMeal = new Meal(name,description,calories);
 			this.sendNewMeal.emit(newMeal);
 			}
+			
+		}
 }
 

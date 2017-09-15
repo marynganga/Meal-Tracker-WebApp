@@ -23,7 +23,7 @@ import { Meal } from './meal.model';
 				<meal-list [childMealList]="masterMealList" 
 				(sendEditClick)="showDetails($event)"></meal-list>
 				<edit-meal [childSelectedMeal]="selectedMeal" 
-				(sendDoneClick)="finishedEditing()" ></edit-meal>
+				(sendDoneClick)="finishedEditing()"></edit-meal>
 			</section>
 		</main>
 		<footer class="well">
@@ -40,7 +40,7 @@ export class AppComponent{
 		new Meal("Fish","Accompanied by Kachumbari",700),
 		new Meal("Ugali Matumbo","Accompanied by Kachumbari",700)
 	]
-	selectedMeal:Meal = this.masterMealList[0];
+	selectedMeal:Meal = null;
 	showDetails(clickedMeal:Meal){
 		this.selectedMeal = clickedMeal; 
 	}
@@ -56,3 +56,4 @@ export class AppComponent{
 
 
 }
+

@@ -5,12 +5,13 @@ import { Meal } from './meal.model';
 @Component({
 	selector: "edit-meal",
 	template: `
+		<div *ngIf="childSelectedMeal">
 			<div class="form-group">
 				<label for="mealName" class="form-label">Name:</label>
 				<input [(ngModel)]="childSelectedMeal.name" id="mealName" type="text" class="form-control" required>
 			</div> 
 			<div class="form-group">
-				<label for="mealDescription" class="form-label">Description:</label>
+				<label for="mealDescription" class="form-label">Details:</label>
 				<input [(ngModel)]="childSelectedMeal.description" id="mealDescription" type="text"  class="form-control" >
 			</div> 
 			<div class="form-group">
@@ -18,6 +19,7 @@ import { Meal } from './meal.model';
 				<input [(ngModel)]="childSelectedMeal.calories" id="mealCalories" type="number" min="0" class="form-control" required>	
 			</div> 
 			<button (click)="doneIsClicked()"class="btn btn-info">Done</button>
+		</div>
 	`
 })
 
@@ -29,3 +31,4 @@ export class EditMealComponent {
 	}
 
 }
+

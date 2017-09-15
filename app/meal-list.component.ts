@@ -8,7 +8,7 @@ import { Meal } from './meal.model';
 			<h3>Meals</h3>
 			<div *ngFor="let currentMeal of childMealList">
 				<p>{{currentMeal.name | uppercase}}</p>
-				<p>description: {{currentMeal.description}}</p>
+				<p>details: {{currentMeal.description}}</p>
 				<p>calories: {{currentMeal.calories}}</p>
 				<button (click)="editIsClicked(currentMeal)" class="btn btn-info">Edit</button>
 			</div>
