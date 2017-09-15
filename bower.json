@@ -1,0 +1,22 @@
+{
+  "name": "angular-to-do-list",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "marynganga <marynganga.mw@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1"
+  }
+}
