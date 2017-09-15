@@ -19,6 +19,7 @@ import { Meal } from './meal.model';
 				<div  class="well">
 					<h5>Filters</h5>
 				</div>
+				<new-meal (sendNewMeal)="addMeal($event)"></new-meal>
 				<meal-list [childMealList]="masterMealList" 
 				(sendEditClick)="showDetails($event)"></meal-list>
 				<edit-meal [childSelectedMeal]="selectedMeal" 
@@ -35,9 +36,9 @@ import { Meal } from './meal.model';
 export class AppComponent{
 	public masterMealList: Meal[] = [
 		new Meal("Pilau","Accompanied by Kachumbari",700),
-		new Meal("Pilau","Accompanied by Kachumbari",700),
-		new Meal("Pilau","Accompanied by Kachumbari",700),
-		new Meal("Pilau","Accompanied by Kachumbari",700)
+		new Meal("Chicken","Accompanied by Kachumbari",700),
+		new Meal("Fish","Accompanied by Kachumbari",700),
+		new Meal("Ugali Matumbo","Accompanied by Kachumbari",700)
 	]
 	selectedMeal:Meal = this.masterMealList[0];
 	showDetails(clickedMeal:Meal){
@@ -48,10 +49,10 @@ export class AppComponent{
 		this.selectedMeal = null;
 	}
 
+	addMeal(newMealFromChild:Meal){
+		this.masterMealList.push(newMealFromChild);
+
+	}
+
 
 }
-
-  // addTask(newTaskFromChild:Task){
-  // 	this.masterTaskList.push(newTaskFromChild);
-  // }
-  
