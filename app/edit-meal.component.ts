@@ -8,17 +8,17 @@ import { Meal } from './meal.model';
 		<div *ngIf="childSelectedMeal">
 			<div class="form-group">
 				<label for="mealName" class="form-label">Name:</label>
-				<input [(ngModel)]="childSelectedMeal.name" id="mealName" type="text" class="form-control" required>
+				<input [(ngModel)]="childSelectedMeal.name" #name id="mealName" type="text" class="form-control" required>
 			</div> 
 			<div class="form-group">
 				<label for="mealDescription" class="form-label">Details:</label>
-				<input [(ngModel)]="childSelectedMeal.description" id="mealDescription" type="text"  class="form-control" >
+				<input [(ngModel)]="childSelectedMeal.description" #description id="mealDescription" type="text"  class="form-control" >
 			</div> 
 			<div class="form-group">
 				<label for="mealCalories" class="form-label">Calories:</label>
-				<input [(ngModel)]="childSelectedMeal.calories" id="mealCalories" type="number" min="0" class="form-control" required>	
+				<input [(ngModel)]="childSelectedMeal.calories" #calories id="mealCalories" type="number" min="0" class="form-control" required>	
 			</div> 
-			<button (click)="doneIsClicked()"class="btn btn-info">Done</button>
+			<button (click)="doneIsClicked(name.value,description.value, calories.value)"class="btn btn-info">Done</button>
 		</div>
 	`
 })
@@ -26,9 +26,14 @@ import { Meal } from './meal.model';
 export class EditMealComponent {
 	@Input() childSelectedMeal:Meal;
 	@Output() sendDoneClick = new EventEmitter();
-	doneIsClicked(){
-		this.sendDoneClick.emit();
+	doneIsClicked(name,description, calories){
+		if(typeof(name) === )
+		if (name === '' || description === '' || calories === ''){
+				alert('Please fill all fields.');
+				
+			}else{
+				this.sendDoneClick.emit();
+			}
 	}
 
 }
-

@@ -24,7 +24,7 @@ import { Meal } from './meal.model';
 
 export class NewMealComponent{
 		@Output() sendNewMeal = new EventEmitter();
-		submitIsClicked(name:string,description:string, calories:number){
+		submitIsClicked(name,description, calories){
 			if (name === '' || description === '' || calories === ''){
 				alert('Please fill all fields.');
 				
