@@ -18,14 +18,7 @@ import { Meal } from './meal.model';
 				<div  class="well">
 					<h5>Filters</h5>
 				</div>
-				<div class="well">
-					<h3>Meals</h3>
-					<div *ngFor="let currentMeal of meals">
-						<p>{{currentMeal.name | uppercase}}</p>
-						<p>{{currentMeal.description}}</p>
-						<p>{{currentMeal.calories}}</p>
-					</div>
-				</div>
+				<meal-list [childMealList]="masterMealList"></meal-list>
 			</section>
 		</main>
 		<footer class="well">
@@ -35,12 +28,12 @@ import { Meal } from './meal.model';
 })
 
 export class AppComponent{
-	public meals: Meal[] = [
+	public masterMealList: Meal[] = [
 		new Meal("Pilau","Accompanied by Kachumbari",700),
 		new Meal("Pilau","Accompanied by Kachumbari",700),
 		new Meal("Pilau","Accompanied by Kachumbari",700),
 		new Meal("Pilau","Accompanied by Kachumbari",700)
 	]
-	console.log(meals);
+	console.log(masterMealList);
 
 }
