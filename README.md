@@ -25,7 +25,7 @@ Once entered the meals will be displayed in a list. The user has the option of e
 #### Adding a new meal:
 ![Meal Tracker - Add New Meal](resources/images/screenshot2.png)
 
-#### The updated meal list:
+#### The updated meal list on hitting submit:
 ![Meal Tracker - Add New Meal](resources/images/screenshot4.png)
 
 #### Editing a meal entry:
