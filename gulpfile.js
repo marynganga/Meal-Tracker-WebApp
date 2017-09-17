@@ -68,14 +68,13 @@ gulp.task('cssBowerClean', function(){
 
 gulp.task('bower', ['jsBower', 'cssBower']);
 
+//////////////////IMAGES////////////////////////////
 gulp.task("includeAssets", function(){
-  var allImages = gulp.src("./resources/images/*")
-  var pngImages = gulp.src("./resources/images/*.png")
   return gulp.src("./resources/images/*")
     .pipe(gulp.dest("./build/resources/images"));
 });
 
-////////////////////// SASS //////////////////////
+////////////////////// SASS AND BOOTSTRAP FILES //////////////////////
 gulp.task('cssBower',["cssBowerClean","includeAssets"], function () {
   var bootstrapFiles = gulp.src(lib.ext('css').files);
   var stylesScss = gulp.src(['resources/css/*.scss'])
