@@ -1,0 +1,125 @@
+$transparentWhite : rgba(255, 255, 255, 0.7);
+$greyishBorder : 2px solid #ccc;
+$greyShadow: 0 0 20px grey;
+
+.container-fluid{
+	padding: 0px;
+}
+/* Styles for the Site Heading */
+.jumbotron{
+	min-height: 15%; 
+	margin:auto;
+	padding: 2px;
+	background-color: white;
+	color:black;
+	text-align: center;
+	text-shadow: 3px 3px #ccc;
+	border-radius: none;
+	border-bottom: $greyishBorder;
+
+	img{
+		height: 60px;
+    	width: 70px;
+    	padding-right: 10px;
+	}
+
+	h1{
+		font-size: 45px;
+		font-weight: bolder;
+	}
+}
+/* Styles for the main body of the site */ 
+main{
+	background-image: url('../resources/images/background2.jpg');
+	background-size: cover;
+	overflow-x: hidden;
+	min-height: 75%; 
+}
+
+.filter{
+	text-align:right;
+	width:70%;
+	background-color: $transparentWhite ;
+	margin: auto;
+	border: $greyishBorder;	
+	box-shadow: $greyShadow;
+	border-radius: 10px;
+}
+
+.mealsSection, .edit-meal, .new-meal{
+	width:70%;
+	height: auto;
+	background-color: $transparentWhite;
+	padding: 2px 20px 20px 20px;
+	margin: 10px auto;
+	border: $greyishBorder;
+	box-shadow: $greyShadow;
+	border-radius: 10px;
+
+
+}
+
+.mealsSection{
+	h3{
+		text-align: center;
+		border-bottom: $greyishBorder;
+		font-weight: bolder;
+	}
+	.eachMeal{
+		margin: 10px;
+		padding-bottom: 10px;
+		height: auto;
+		border-bottom: $greyishBorder;
+		.name{
+			font-size: 20px;
+			font-weight: bolder;
+			span{
+				font-weight: normal;
+			}
+
+		}
+		.details{
+			float:left;
+			width: 65%;
+			height: auto;
+			word-wrap: break-word;
+			font-size: 18px;
+			font-weight: bold;
+			span{
+				font-weight: normal;
+			}
+		}
+		.calories{
+			float:left;
+			width: 35%;
+			word-wrap: break-word;
+			font-size: 18px;
+			font-weight: bold;
+			span{
+				font-weight: normal;
+			}
+		}
+	}
+
+}
+.new-meal, .edit-meal{
+	h3{
+		text-align: center;
+		border-bottom: $greyishBorder;
+		font-weight: bolder;
+	}
+}
+
+/* Styles for the footer */ 
+footer{
+	min-height: 10%; 
+	text-align: center;
+	font-style: italic;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 0px;
+	bottom: 0px;
+	padding: 5px;
+	background-color: black;
+
+}
