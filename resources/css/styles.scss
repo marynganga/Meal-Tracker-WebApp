@@ -1,6 +1,14 @@
+/* General Styling */ 
 $transparentWhite : rgba(255, 255, 255, 0.7);
 $greyishBorder : 2px solid #ccc;
 $greyShadow: 0 0 20px grey;
+h1,h2,h3,h4,h5{
+	font-family: 'Merienda One', cursive;
+
+}
+label, option{
+	font-size: 17px;
+}
 
 .container-fluid{
 	padding: 0px;
