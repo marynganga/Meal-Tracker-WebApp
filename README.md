@@ -22,14 +22,14 @@ Once entered the meals will be displayed in a list. The user has the option of e
 #### On page load:
 ![Meal Tracker - Add New Meal](resources/images/screenshot1.png)
 
-#### Adding a new meal
+#### Adding a new meal:
 ![Meal Tracker - Add New Meal](resources/images/screenshot2.png)
 
-#### The meal list
-![Meal Tracker - Add New Meal](resources/images/screenshot3.png)
-
-#### Editing a meal entry
+#### The updated meal list:
 ![Meal Tracker - Add New Meal](resources/images/screenshot4.png)
+
+#### Editing a meal entry:
+![Meal Tracker - Add New Meal](resources/images/screenshot5.png)
 
 ## Setup/Installation Requirements
 ### Prerequisites
