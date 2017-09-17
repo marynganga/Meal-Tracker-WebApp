@@ -10,7 +10,7 @@ import { Meal } from './meal.model';
 		</header>
 		<main>
 			<section>
-			<div class="about">
+			<div class="about" *ngIf="masterMealList.length===0">
 				<h3>About</h3>
 				<p>Lisho Meal Tracker is a simple yet elegant website application that lets you log your meals for the day.<br />
 				<ul>
@@ -38,8 +38,10 @@ export class AppComponent{
 	public masterMealList: Meal[] = [
 	]
 
+
 	/* A function to add a new meal to the array */
 	addMeal(newMealFromChild:Meal){
+		console.log(this.masterMealList);
 		this.masterMealList.unshift(newMealFromChild);
 
 	}
