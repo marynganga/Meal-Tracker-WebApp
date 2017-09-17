@@ -54,7 +54,7 @@ main{
 	border-radius: 10px;
 }
 
-.mealsSection, .edit-meal, .new-meal{
+.mealsSection, .edit-meal, .new-meal, .about{
 	width:70%;
 	height: auto;
 	background-color: $transparentWhite;
@@ -110,12 +110,15 @@ main{
 	}
 
 }
-.new-meal, .edit-meal{
+.new-meal, .edit-meal,.about{
 	h3{
 		text-align: center;
 		border-bottom: $greyishBorder;
 		font-weight: bolder;
 	}
+}
+.about{
+	font-size: 18px;
 }
 
 /* Styles for the footer */ 
