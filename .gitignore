@@ -6,3 +6,9 @@ app/*.js.map
 .DS_Store
 build/
 typings/
+resources/images/background1.jpeg
+resources/images/background3.jpg
+resources/images/logo.png
+resources/images/logo2.jpg
+resources/images/logo3.jpg
+
