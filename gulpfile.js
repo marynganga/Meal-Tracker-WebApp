@@ -30,9 +30,6 @@ var shell = require('gulp-shell');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 
-// to work with more than one source(src) in the same file
-var merge = require('merge-stream'); 
-
 ////////////////////// TYPESCRIPT //////////////////////
 // clean task
 gulp.task('tsClean', function(){
@@ -66,6 +63,12 @@ gulp.task('cssBowerClean', function(){
   return del(['./build/css/vendor.css']);
 });
 
+gulp.task('cssBower', ['cssBowerClean'], function() {
+  return gulp.src(lib.ext('css').files)
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest('./build/css'));
+});
+
 gulp.task('bower', ['jsBower', 'cssBower']);
 
 //////////////////IMAGES////////////////////////////
@@ -74,19 +77,15 @@ gulp.task("includeAssets", function(){
     .pipe(gulp.dest("./build/resources/images"));
 });
 
-////////////////////// SASS AND BOOTSTRAP FILES //////////////////////
-gulp.task('cssBower',["cssBowerClean","includeAssets"], function () {
-  var bootstrapFiles = gulp.src(lib.ext('css').files);
-  var stylesScss = gulp.src(['resources/css/*.scss'])
+
+////////////////////// SASS //////////////////////
+
+gulp.task('sassBuild',['includeAssets'], function() {
+  return gulp.src('resources/css/*')
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(sourcemaps.write())
-    .pipe(browserSync.stream());
-  return merge(bootstrapFiles,stylesScss)
-    .pipe(concat('vendor.css'))
     .pipe(gulp.dest('./build/css'));
-    browserSync.reload();
-
 });
 
 ////////////////////// SERVER //////////////////////
@@ -99,7 +98,7 @@ gulp.task('serve', ['build'], function() {
   });
   gulp.watch(['resources/js/*.js'], ['jsBuild']); // vanilla js changes, reload.
   gulp.watch(['*.html'], ['htmlBuild']); // html changes, reload.
-  gulp.watch(['resources/css/*.scss'], ['cssBuild']); // sass changes, concatenate all css/sass, build, reload.
+  gulp.watch(['resources/styles/*.css', 'resources/styles/*.scss'], ['cssBuild']); // css or sass changes, concatenate all css/sass, build, reload.
   gulp.watch(['app/*.ts'], ['tsBuild']); // typescript files change, compile then reload.
 });
 
@@ -111,7 +110,7 @@ gulp.task('htmlBuild', function(){
   browserSync.reload();
 });
 
-gulp.task('cssBuild',['cssBower'], function(){
+gulp.task('cssBuild', ['sassBuild'], function(){
   browserSync.reload();
 });
 
@@ -124,4 +123,5 @@ gulp.task('tsBuild', ['ts'], function(){
 gulp.task('build', ['ts'], function(){
   // we can use the buildProduction environment variable here later.
   gulp.start('bower');
+  gulp.start('sassBuild');
 });
