@@ -23,11 +23,13 @@ import { Meal } from './meal.model';
 					<div class="calories">
 						<p>Calories: <span>{{currentMeal.calories}}</span></p>
 					</div>
-					<button (click)="showDetails(currentMeal)" class="btn btn-info">Edit</button>
-					</div>
+					<button (click)="showDetails(currentMeal);mealtoEdit()" class="btn btn-info">Edit</button>
 					<!-- when edit is clicked call upon the edit-meal tag with the form -->
-					<edit-meal [childSelectedMeal]="selectedMeal"
-					(sendDoneClick)="finishedEditing()"></edit-meal>
+					
+				</div>
+				<edit-meal [childSelectedMeal]="selectedMeal" *ngIf="editThisMeal" 
+				(sendDoneClick)="finishedEditing()"></edit-meal>
+					
 					
 
 			</div>
@@ -56,6 +58,11 @@ export class MealListComponent{
   	/* a function that reverts the property value to null thus hiding the form when done is clicked */
 	finishedEditing(){
 		this.selectedMeal = null;
+	}
+
+	editThisMeal=null;
+	mealtoEdit(){
+		this.editThisMeal="display the edit form underneath";
 	}
 }
  

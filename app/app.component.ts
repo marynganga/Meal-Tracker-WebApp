@@ -41,7 +41,6 @@ export class AppComponent{
 
 	/* A function to add a new meal to the array */
 	addMeal(newMealFromChild:Meal){
-		console.log(this.masterMealList);
 		this.masterMealList.unshift(newMealFromChild);
 
 	}
